@@ -3,10 +3,14 @@ const newManager = require('./manager');
 const newEngineer = require('./engineer');
 const newIntern = require('./intern');
 
+var managerinfo = newManager();
+var engineerinfo = newEngineer();
+var interninfo = newIntern();
 
-function createHTML(inputs) {
-    var websiteHTML = 
-`<!DOCTYPE html>
+
+function createHTML() {
+    var websiteHTML =
+        `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -30,13 +34,13 @@ function createHTML(inputs) {
         </div>
     </div>
     <div class="row justify-content-center" id="manager">
-    ${createEmployeeHTML(inputs)}  
+    ${managerinfo} 
     </div>
     <div class="row justify-content-center" id="engineer">
-    ${createEmployeeHTML(inputs)}  
+    ${engineerinfo}  
     </div>
     <div class="row justify-content-center" id="intern">
-    ${createEmployeeHTML(inputs)}  
+    ${interninfo}  
     </div>
     </div>
     </div>
@@ -44,9 +48,9 @@ function createHTML(inputs) {
 </html>`
 
 
-fs.writeFile("./output/index.html", content, function (err) {
+    return fs.writeFileSync("./output/index.html", websiteHTML, function (err) {
         if (err) throw err;
     });
 }
 
-module.exports = createHTML
+module.exports = createHTML;
