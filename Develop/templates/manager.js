@@ -1,7 +1,6 @@
 const Manager = require("../lib/Manager");
-const newManager = new Manager("Manmanman", 01, "M@gmailcom", "Boss")
 
-function writeManager(){ 
+function writeManager(newManager){ 
     return (`<div class="card bg-info mb-3 shadow" style="width: 18rem;">
     <div class="card-header text-center">
     <p class="h4"><i class="fas fa-mountain"></i> Manager</p>
