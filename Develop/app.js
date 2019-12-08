@@ -7,7 +7,7 @@ const Intern = require("./lib/Intern");
 
 var engineerArray = [];
 
-function createAEngineer(numOfEngys, newManager) {
+function createAEngineer(newManager, engineerInt, internInt) {
     console.log(newManager);
 
 
@@ -36,15 +36,60 @@ function createAEngineer(numOfEngys, newManager) {
         var newEngineer = new Engineer(data.engName, data.engId, data.engEmail, data.engGithub);
         engineerArray.push(newEngineer);
 
-        if(numOfEngys === 1){
-            combinedinfo(newManager,engineerArray);
+        if(engineerInt === 1){
+            createAnIntern(newManager,engineerArray, internInt)
       
         }else{
-            createAEngineer(newManager,numOfEngys - 1,)
+            createAEngineer(newManager, engineerInt - 1,internInt);
         };
 
     });
 };
+
+
+var internArray = [];
+
+function createAnIntern (newManager, engineerArray, internInt) {
+    console.log(newManager);
+
+
+    inquirer.prompt([
+        {
+            message: "Lets set up your intern. First name?",
+            type: "input",
+            name: "intName",
+        },
+        {
+            message: "Interns Id number?",
+            type: "input",
+            name: "intId",
+        },
+        {
+            message: "Please include his/hers email here.",
+            type: "input",
+            name: "intEmail",
+        },
+        {
+            message: "We need this engineers Github profile for the NSA directory.. I mean, GitUser name please.",
+            type: "input",
+            name: "intGithub",
+        },
+    ]).then(data => {
+        var newIntern = new Intern(data.intName, data.intId, data.intEmail, data.intGithub);
+        internArray.push(newIntern);
+
+        if(internInt === 1){
+            combinedinfo(newManager,engineerArray ,internArray);
+      
+        }else{
+            createAnIntern(newManager, engineerArray, internInt - 1);
+        };
+
+    });
+};
+
+
+
 
 
 function createAManager() {
@@ -98,7 +143,9 @@ function createAManager() {
     ]).then(data => {
         const newManager = new Manager(data.managerName, data.managerId, data.managerEmail, data.managerPhoneNum);
         const engineerInt = parseInt(data.engineerNum);
-        createAEngineer(engineerInt, newManager)
+        const internInt = parseInt(data.internNum);
+
+        createAEngineer(newManager, engineerInt,internInt)
 
         fs.writeFile("managerinfo.json", JSON.stringify(data, null, '\t'), function (err) {
 
