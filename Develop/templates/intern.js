@@ -20,5 +20,4 @@ function writeIntern(newIntern){
 return internHTML;
 };
 
-
 module.exports = writeIntern;

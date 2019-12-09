@@ -3,17 +3,10 @@ const newManager = require('./manager');
 const newEngineer = require('./engineer');
 const newIntern = require('./intern');
 
-// writeEngineer(newEngineer)
-
-
 function createHTML(managerData, engineerData, internData) {
-
-
     var engineerinfo = newEngineer(engineerData);
     var managerinfo = newManager(managerData);
     var interninfo = newIntern(internData);
-    
-    
 
     var websiteHTML =
         `<!DOCTYPE html>

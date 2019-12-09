@@ -8,10 +8,7 @@ const Intern = require("./lib/Intern");
 var engineerArray = [];
 
 function createAEngineer(newManager, engineerInt, internInt) {
-    console.log(newManager);
-
-
-    inquirer.prompt([
+  inquirer.prompt([
         {
             message: "Computing.... Set up engineers here... First name please.",
             type: "input",
@@ -50,9 +47,6 @@ function createAEngineer(newManager, engineerInt, internInt) {
 var internArray = [];
 
 function createAnIntern (newManager, engineerArray, internInt) {
-    console.log(newManager);
-
-
     inquirer.prompt([
         {
             message: "Lets set up your intern. First name?",
@@ -146,14 +140,6 @@ function createAManager() {
         const internInt = parseInt(data.internNum);
 
         createAEngineer(newManager, engineerInt,internInt)
-
-        fs.writeFile("managerinfo.json", JSON.stringify(data, null, '\t'), function (err) {
-
-            if (err) {
-                return console.log(err);
-            }
-        });
-
     });
 };
 createAManager();

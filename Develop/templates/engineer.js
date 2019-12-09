@@ -1,7 +1,5 @@
 const Engineer = require("../lib/Engineer");
 
-
-
 function writeEngineer(newEngineer){ 
     let engineerHTML = "";
 newEngineer.forEach(element => {
@@ -19,7 +17,6 @@ newEngineer.forEach(element => {
         </div>`
 });
 
-    
     return engineerHTML;
     };
 
