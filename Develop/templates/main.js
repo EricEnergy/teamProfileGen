@@ -3,18 +3,18 @@ const newManager = require('./manager');
 const newEngineer = require('./engineer');
 const newIntern = require('./intern');
 
-
+// writeEngineer(newEngineer)
 
 
 function createHTML(managerData, engineerData, internData) {
-console.log(engineerData.length)// test correct. prints length
-console.log(engineerData);// test correct. prints length
-console.log(managerData);
 
-    var managerinfo = newManager(managerData);
+
     var engineerinfo = newEngineer(engineerData);
+    var managerinfo = newManager(managerData);
     var interninfo = newIntern(internData);
     
+    
+
     var websiteHTML =
         `<!DOCTYPE html>
 <html lang="en">

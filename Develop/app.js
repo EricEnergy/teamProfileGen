@@ -65,21 +65,21 @@ function createAnIntern (newManager, engineerArray, internInt) {
             name: "intId",
         },
         {
-            message: "Please include his/hers email here.",
+            message: "Enter interns email here?",
             type: "input",
             name: "intEmail",
         },
         {
-            message: "We need this engineers Github profile for the NSA directory.. I mean, GitUser name please.",
+            message: "Please include his/hers school name here.",
             type: "input",
-            name: "intGithub",
+            name: "intSchool",
         },
     ]).then(data => {
-        var newIntern = new Intern(data.intName, data.intId, data.intEmail, data.intGithub);
+        var newIntern = new Intern(data.intName, data.intId, data.intEmail, data.intSchool);
         internArray.push(newIntern);
 
         if(internInt === 1){
-            combinedinfo(newManager,engineerArray ,internArray);
+            combinedinfo(newManager, engineerArray, internArray);
       
         }else{
             createAnIntern(newManager, engineerArray, internInt - 1);
